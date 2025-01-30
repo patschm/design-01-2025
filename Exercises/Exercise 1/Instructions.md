@@ -1,4 +1,4 @@
-# Using forech
+# Using foreach
 ## Introduction
 In this exercise we have a custom collection (SpecialCollection<T>) wrapping an array that duplicates in size each time it reaches its capacity.
 The problem is that we cannot blindly navigate through the collection since many array elements might be empty (null) which makes looping through the collection error prone.

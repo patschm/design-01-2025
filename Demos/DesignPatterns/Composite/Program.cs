@@ -8,6 +8,7 @@ internal class Program
         var c1 = new Composite();
         c1.Add(new Leaf());
         c1.Add(new Leaf());
+
         var c2 = new Composite();
         c2.Add(new Leaf());
         c2.Add(new Leaf());

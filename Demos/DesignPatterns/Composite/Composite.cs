@@ -12,6 +12,7 @@ internal class Composite : Component
     public override void Show()
     {
         Console.WriteLine("This is a NODE:");
+
         foreach(var component in _components)
         {
             component.Show();

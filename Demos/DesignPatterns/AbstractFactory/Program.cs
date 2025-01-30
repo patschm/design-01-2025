@@ -8,7 +8,8 @@ internal class Program
     static void Main(string[] args)
     {
         var modern = new ModernFactory();
-        modern.CreateTable().BuildTable();
+        var table = modern.CreateTable();
+        table.BuildTable();
         modern.CreateSofa().BuildSofa();
         modern.CreateChair().BuildChair();
 
