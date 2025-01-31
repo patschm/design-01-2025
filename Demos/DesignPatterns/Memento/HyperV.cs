@@ -7,6 +7,7 @@ internal class HyperV
 {
     private Dictionary<DateTime, VirtualMachine.SnapShot> _snapShots = new Dictionary<DateTime, VirtualMachine.SnapShot>();
     private VirtualMachine _machine = new VirtualMachine();
+
     public VirtualMachine StartVM()
     {
         return _machine;
