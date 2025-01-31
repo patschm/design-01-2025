@@ -1,4 +1,6 @@
-﻿namespace Flyweight;
+﻿using System.Linq.Expressions;
+
+namespace Flyweight;
 
 internal class Program
 {
@@ -13,9 +15,8 @@ internal class Program
             var brand = factory.GetBrand($"Brand {i % 100}", $"https://host.com/brand{i % 100}");
             brands.Add( brand );
             var product = factory.GetProduct($"Brand {i % 100}", $"Type {i%100}", $"https://host.com/brand{i % 100}");
-            products.Add( product );    
+            products.Add( product );
         }
-
         Console.ReadLine();
     }
 }

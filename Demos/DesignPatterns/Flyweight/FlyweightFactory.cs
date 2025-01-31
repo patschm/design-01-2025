@@ -8,7 +8,7 @@ internal class FlyweightFactory
     public Brand GetBrand(string name, string logoUrl)
     {
 #if FLYWEIGHTS
-        Brand? brand = _flyweights.OfType<Brand>().FirstOrDefault(b => b.Name == name && b.LogoUrl == logoUrl);
+        Brand? brand = _flyweights.OfType<Brand>().FirstOrDefault(b => b.LogoUrl == logoUrl);
 #else
         Brand? brand = null;
 #endif
@@ -18,12 +18,20 @@ internal class FlyweightFactory
             _flyweights.Add(brand);
             brand.Download();
         }
+        else
+        {
+            // Create Flyweight
+            brand = new Brand { 
+                Name = name, 
+                LogoUrl = logoUrl, 
+                Logo = brand.Logo };
+        }
         return brand;
     }
     public Product GetProduct(string brand, string type, string logoUrl)
     {
 #if FLYWEIGHTS
-        Product? product = _flyweights.OfType<Product>().FirstOrDefault(p => p.Brand==brand && p.Type == type && p.LogoUrl == logoUrl);
+        Product? product = _flyweights.OfType<Product>().FirstOrDefault(p=>p.LogoUrl == logoUrl);
 #else
         Product? product = null;
 #endif
@@ -32,6 +40,16 @@ internal class FlyweightFactory
             product = new Product { Brand = brand, Type = type, LogoUrl = logoUrl };
             _flyweights.Add(product);
             product.Download();
+        }
+        else
+        {
+            product = new Product
+            {
+                Brand = brand,
+                Type = type,
+                LogoUrl = logoUrl,
+                Logo = product.Logo
+            };
         }
         return product;
     }
